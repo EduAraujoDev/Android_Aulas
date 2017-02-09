@@ -28,4 +28,25 @@ public class MainActivity extends AppCompatActivity {
 
         etResultado.setText(String.valueOf(valor1 + valor2));
     }
+
+    public void subtrai(View view) {
+        int valor1 = Integer.parseInt(tilValor1.getEditText().getText().toString());
+        int valor2 = Integer.parseInt(tilValor2.getEditText().getText().toString());
+
+        etResultado.setText(String.valueOf(valor1 - valor2));
+    }
+
+    public void multiplica(View view) {
+        int valor1 = Integer.parseInt(tilValor1.getEditText().getText().toString());
+        int valor2 = Integer.parseInt(tilValor2.getEditText().getText().toString());
+
+        etResultado.setText(String.valueOf(valor1 * valor2));
+    }
+
+    public void dividi(View view) {
+        int valor1 = Integer.parseInt(tilValor1.getEditText().getText().toString());
+        int valor2 = Integer.parseInt(tilValor2.getEditText().getText().toString());
+
+        etResultado.setText(String.valueOf(valor1 / valor2));
+    }
 }
