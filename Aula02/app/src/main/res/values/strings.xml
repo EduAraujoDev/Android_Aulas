@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Aula02</string>
+    <string name="versao">Versão 1.0</string>
+    <string name="title_activity_formulario">FormularioActivity</string>
+    <string name="label_nome">Nome</string>
+    <string name="hint_informe_seu_nome">Informe o nome</string>
+    <string name="label_curso">Digite o curso</string>
+    <string name="selecione_curso">Selecione uma opção</string>
+    <string name="selecione_periodo">Selecione o pediodo</string>
+    <string name="label_participar">Participar</string>
+    <string name="label_manha">Manhã</string>
+    <string name="label_noite">Noite</string>
+
+    <string name="curso_android">Android</string>
+    <string name="curso_ios">IOS</string>
+    <string name="curso_java">Java</string>
+    <string name="curso_iot">Iot</string>
+
+    <string name="confirmacao">
+        <![CDATA[<h1>O sr(a) %1$s esta participando do curso %2$s no periodo da %3$s</h1>]]>
+    </string>
+</resources>
