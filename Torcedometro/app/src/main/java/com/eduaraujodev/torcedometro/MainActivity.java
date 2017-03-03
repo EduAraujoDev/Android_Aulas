@@ -1,6 +1,7 @@
 package com.eduaraujodev.torcedometro;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +21,9 @@ import com.eduaraujodev.torcedometro.dao.TorcedorDAO;
 import com.eduaraujodev.torcedometro.model.Torcedor;
 
 import java.util.List;
+
+import static com.eduaraujodev.torcedometro.LoginActivity.KEY_APP_PREFERENCES;
+import static com.eduaraujodev.torcedometro.LoginActivity.KEY_LOGIN;
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -122,22 +126,23 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        switch (id){
+            case R.id.nav_sair:
+                sair();
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void sair() {
+        SharedPreferences pref = getSharedPreferences(KEY_APP_PREFERENCES, MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(KEY_LOGIN, "");
+        editor.apply();
+
+        finish();
     }
 }

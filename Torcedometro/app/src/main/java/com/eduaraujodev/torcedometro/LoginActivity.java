@@ -13,8 +13,8 @@ public class LoginActivity extends AppCompatActivity {
     private final String LOGIN_DEFAULT = "android";
     private final String SENHA_DEFAULT = "123";
 
-    private final String KEY_APP_PREFERENCES = "APP_PREFERENCE";
-    private final String KEY_LOGIN = "login";
+    public static final String KEY_APP_PREFERENCES = "APP_PREFERENCE";
+    public static final String KEY_LOGIN = "login";
 
     private TextInputLayout tilLogin;
     private TextInputLayout tilSenha;
