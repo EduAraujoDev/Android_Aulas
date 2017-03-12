@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -27,17 +29,18 @@ import static com.eduaraujodev.torcedometro.LoginActivity.KEY_LOGIN;
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView tvTorcedores;
+    private RecyclerView rvLista;
+    private ListaAndroidAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        rvLista = (RecyclerView) findViewById(R.id.rvLista);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        tvTorcedores = (TextView) findViewById(R.id.tvTorcedores);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -73,19 +76,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     private void carregaTorcedores() {
-        tvTorcedores.setText("");
         TorcedorDAO torcedorDAO = new TorcedorDAO(this);
         StringBuilder sb= new StringBuilder();
         List<Torcedor> torcedores = torcedorDAO.getAll();
-        for(Torcedor t : torcedores) {
-            sb= new StringBuilder(tvTorcedores.getText());
-            sb.append("\n");
-            sb.append(t.getNome());
-            sb.append(" - ");
-            sb.append(t.getClube().getNome());
 
-            tvTorcedores.setText(sb.toString());
-        }
+        setUpLista(torcedores);
     }
 
     @Override
@@ -144,5 +139,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         editor.apply();
 
         finish();
+    }
+
+    private void setUpLista(List<Torcedor> torcedores) {
+        adapter = new ListaAndroidAdapter(this, torcedores);
+        rvLista.setLayoutManager(new LinearLayoutManager(this));
+        rvLista.setAdapter(adapter);
     }
 }

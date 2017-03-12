@@ -39,8 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         if(isLoginValido()) {
             if(cbManterConectado.isChecked()){
                 manterConectado();
-            } else {
-                Toast.makeText(this, "Usuário ou senha invalido", Toast.LENGTH_LONG).show();
             }
 
             iniciarApp();
@@ -55,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         if (login.equals(LOGIN_DEFAULT) && senha.equals(SENHA_DEFAULT)) {
             return true;
         } else {
+            Toast.makeText(this, "Usuário ou senha invalido", Toast.LENGTH_LONG).show();
+
             return false;
         }
     }
