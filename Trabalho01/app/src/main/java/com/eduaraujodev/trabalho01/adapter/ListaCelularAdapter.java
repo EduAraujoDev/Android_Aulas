@@ -38,10 +38,10 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         CelularItemHolder celularItemHolder = (CelularItemHolder) holder;
         celularItemHolder.tvMarca.setText(celulares.get(position).getMarca());
         celularItemHolder.tvModelo.setText(celulares.get(position).getModelo());
-        celularItemHolder.tvVersaoAndroid.setText(celulares.get(position).getVersaoAndroid());
+        celularItemHolder.tvVersaoAndroid.setText(celulares.get(position).getVersaoAndroid().getNome());
 
         Glide.with(context)
-                .load(celulares.get(position).getUrlImagem())
+                .load(celulares.get(position).getVersaoAndroid().getUrlImagem())
                 .placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher)
                 .into(celularItemHolder.ivIcone);

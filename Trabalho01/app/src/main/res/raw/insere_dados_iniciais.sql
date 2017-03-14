@@ -1,0 +1,12 @@
+INSERT INTO android (id, nome, url_imagem) VALUES ( 1, "Cupcake", "http://media02.hongkiat.com/android-evolution/android-cupcake.jpg");
+INSERT INTO android (id, nome, url_imagem) VALUES ( 2, "Donut", "http://cdn1.knowyourmobile.com/sites/knowyourmobilecom/files/styles/article_main_wide_image/public/1/04/295425.jpg");
+INSERT INTO android (id, nome, url_imagem) VALUES ( 3, "Eclair", "http://vignette4.wikia.nocookie.net/android/images/7/77/Screen_Shot_2011-12-16_at_1.08.09_PM.png");
+INSERT INTO android (id, nome, url_imagem) VALUES ( 4, "Froyo", "http://www.mobilexweb.com/wp-content/uploads/2010/07/logo-android-froyo.png");
+INSERT INTO android (id, nome, url_imagem) VALUES ( 5, "Gingerbread", "http://i-cdn.phonearena.com/images/article/88079-image/Future-Play-Store-apps-will-no-longer-run-on-Android-2.3-Gingerbread.jpg");
+INSERT INTO android (id, nome, url_imagem) VALUES ( 6, "Honeycomb", "http://www.androidcentral.com/sites/androidcentral.com/files/postimages/684/honeycomb-bee-android.jpg");
+INSERT INTO android (id, nome, url_imagem) VALUES ( 7, "Ice Cream Sandwich", "https://img1.ibxk.com.br/2011/10/materias/53869301119103554.jpg");
+INSERT INTO android (id, nome, url_imagem) VALUES ( 8, "JellyBean", "http://support1.alcatelonetouch.com/images/b58a4409c00590944fae9358464342fd1377706002.jpg");
+INSERT INTO android (id, nome, url_imagem) VALUES ( 9, "KitKat", "https://www.androidcentral.com/sites/androidcentral.com/files/styles/large/public/topic_images/2016/android-kitkat-topic.png");
+INSERT INTO android (id, nome, url_imagem) VALUES (10, "Lollipop", "http://www.xda-developers.com/wp-content/uploads/2015/09/NBAYK8V.png");
+INSERT INTO android (id, nome, url_imagem) VALUES (11, "Marshmallow", "https://tecnoblog.net/wp-content/uploads/2015/08/android-marshmallow.png");
+INSERT INTO android (id, nome, url_imagem) VALUES (12, "Nougat", "http://images.techtimes.com/data/images/full/256815/android-7-0-nougat.jpg");

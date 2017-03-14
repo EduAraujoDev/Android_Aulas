@@ -2,10 +2,18 @@ package com.eduaraujodev.trabalho01.model;
 
 public class Celular {
 
+    private int id;
     private String marca;
     private String modelo;
-    private String versaoAndroid;
-    private String urlImagem;
+    private VersaoAndroid versaoAndroid;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getMarca() {
         return marca;
@@ -23,19 +31,11 @@ public class Celular {
         this.modelo = modelo;
     }
 
-    public String getVersaoAndroid() {
+    public VersaoAndroid getVersaoAndroid() {
         return versaoAndroid;
     }
 
-    public void setVersaoAndroid(String versaoAndroid) {
+    public void setVersaoAndroid(VersaoAndroid versaoAndroid) {
         this.versaoAndroid = versaoAndroid;
-    }
-
-    public String getUrlImagem() {
-        return urlImagem;
-    }
-
-    public void setUrlImagem(String urlImagem) {
-        this.urlImagem = urlImagem;
     }
 }

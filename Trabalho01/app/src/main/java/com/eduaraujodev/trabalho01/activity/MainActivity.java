@@ -1,15 +1,21 @@
 package com.eduaraujodev.trabalho01.activity;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.eduaraujodev.trabalho01.R;
 import com.eduaraujodev.trabalho01.adapter.ListaCelularAdapter;
+import com.eduaraujodev.trabalho01.dao.CelularDao;
+import com.eduaraujodev.trabalho01.model.Celular;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,14 +36,36 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                startActivityForResult(new Intent(MainActivity.this, NovoCelularActivity.class),
+                        NovoCelularActivity.CODE_NOVO_CELULAR);
             }
         });
 
         carregaCelulares();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_CANCELED) {
+            Toast.makeText(MainActivity.this, "Cancelado", Toast.LENGTH_LONG).show();
+        } else if (resultCode == NovoCelularActivity.CODE_NOVO_CELULAR) {
+            carregaCelulares();
+        }
+    }
+
     private void carregaCelulares() {
-        tvSemCelular.setText(getString(R.string.textoSemCelular));
+        List<Celular> celulares = new CelularDao(this).getAll();
+
+        if (celulares.size() > 0) {
+            tvSemCelular.setText("");
+
+            adapter = new ListaCelularAdapter(this, celulares);
+            rvLista.setLayoutManager(new LinearLayoutManager(this));
+            rvLista.setAdapter(adapter);
+        } else {
+            tvSemCelular.setText(getString(R.string.textoSemCelular));
+        }
     }
 }
