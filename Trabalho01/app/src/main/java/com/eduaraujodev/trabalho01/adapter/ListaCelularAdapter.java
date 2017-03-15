@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.eduaraujodev.trabalho01.R;
@@ -20,11 +19,13 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private Context context;
     private LayoutInflater inflater;
     private List<Celular> celulares;
+    private CelularOnClickListener celularOnClickListener;
 
-    public ListaCelularAdapter(Context context, List<Celular> celulares) {
+    public ListaCelularAdapter(Context context, List<Celular> celulares, CelularOnClickListener celularOnClickListener) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.celulares = celulares;
+        this.celularOnClickListener = celularOnClickListener;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         CelularItemHolder celularItemHolder = (CelularItemHolder) holder;
         celularItemHolder.tvMarca.setText(celulares.get(position).getMarca());
         celularItemHolder.tvModelo.setText(celulares.get(position).getModelo());
@@ -48,12 +49,9 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 .into(celularItemHolder.ivIcone);
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-
             @Override
             public boolean onLongClick(View v) {
-                Celular celular = celulares.get(position);
-
-                Toast.makeText(context, celular.getMarca(), Toast.LENGTH_SHORT).show();
+                celularOnClickListener.onLongClickCelular(holder.itemView, position);
 
                 return true;
             }
@@ -78,5 +76,9 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             tvModelo = (TextView) itemView.findViewById(R.id.tvModelo);
             tvVersaoAndroid = (TextView) itemView.findViewById(R.id.tvVersaoAndroid);
         }
+    }
+
+    public interface CelularOnClickListener {
+        void onLongClickCelular(View view, int posicao);
     }
 }

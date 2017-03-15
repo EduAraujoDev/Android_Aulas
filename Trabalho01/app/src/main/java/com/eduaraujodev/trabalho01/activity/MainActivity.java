@@ -20,6 +20,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvSemCelular;
+    private List<Celular> celulares;
 
     private RecyclerView rvLista;
     private ListaCelularAdapter adapter;
@@ -41,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         carregaCelulares();
     }
 
@@ -58,16 +57,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void carregaCelulares() {
-        List<Celular> celulares = new CelularDao(this).getAll();
+        celulares = new CelularDao(this).getAll();
 
         if (celulares.size() > 0) {
             tvSemCelular.setText("");
 
-            adapter = new ListaCelularAdapter(this, celulares);
+            adapter = new ListaCelularAdapter(this, celulares, celularOnClickListener());
             rvLista.setLayoutManager(new LinearLayoutManager(this));
             rvLista.setAdapter(adapter);
         } else {
             tvSemCelular.setText(getString(R.string.textoSemCelular));
         }
+    }
+
+    private ListaCelularAdapter.CelularOnClickListener celularOnClickListener() {
+        return new ListaCelularAdapter.CelularOnClickListener() {
+
+            @Override
+            public void onLongClickCelular(View view, int posicao) {
+                Celular celular = celulares.get(posicao);
+
+                Toast.makeText(getApplicationContext(), celular.getMarca(), Toast.LENGTH_LONG).show();
+            }
+        };
     }
 }
