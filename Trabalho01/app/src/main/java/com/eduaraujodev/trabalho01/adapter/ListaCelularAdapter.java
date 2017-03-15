@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.eduaraujodev.trabalho01.R;
@@ -34,7 +35,7 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         CelularItemHolder celularItemHolder = (CelularItemHolder) holder;
         celularItemHolder.tvMarca.setText(celulares.get(position).getMarca());
         celularItemHolder.tvModelo.setText(celulares.get(position).getModelo());
@@ -45,6 +46,18 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 .placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher)
                 .into(celularItemHolder.ivIcone);
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Celular celular = celulares.get(position);
+
+                Toast.makeText(context, celular.getMarca(), Toast.LENGTH_SHORT).show();
+
+                return true;
+            }
+        });
     }
 
     @Override
@@ -52,7 +65,7 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return celulares.size();
     }
 
-    private class CelularItemHolder extends RecyclerView.ViewHolder{
+    private class CelularItemHolder extends RecyclerView.ViewHolder {
         ImageView ivIcone;
 
         TextView tvMarca, tvModelo, tvVersaoAndroid;
