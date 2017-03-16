@@ -5,7 +5,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,9 +77,25 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLongClickCelular(View view, int posicao) {
-                Celular celular = celulares.get(posicao);
+                final Celular celular = celulares.get(posicao);
 
-                Toast.makeText(getApplicationContext(), celular.getMarca(), Toast.LENGTH_LONG).show();
+                PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.menu_excluir:
+                                Toast.makeText(getApplicationContext(), celular.getMarca(), Toast.LENGTH_SHORT).show();
+
+                                break;
+                        }
+
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
             }
         };
     }
