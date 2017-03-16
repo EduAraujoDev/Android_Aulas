@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         return new ListaCelularAdapter.CelularOnClickListener() {
 
             @Override
-            public void onLongClickCelular(View view, int posicao) {
+            public void onLongClickCelular(View view, final int posicao) {
                 final Celular celular = celulares.get(posicao);
 
                 PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
@@ -84,12 +84,25 @@ public class MainActivity extends AppCompatActivity {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
+                        int retorno = 0;
+
                         switch (item.getItemId()){
                             case R.id.menu_excluir:
-                                Toast.makeText(getApplicationContext(), celular.getMarca(), Toast.LENGTH_SHORT).show();
-
+                                retorno = new CelularDao(getApplicationContext()).delete(celular.getId());
                                 break;
                         }
+
+                        if (retorno > 0) {
+                            Toast.makeText(getApplicationContext(), "Exluido com sucesso", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Não foi possível excluir", Toast.LENGTH_LONG).show();
+                        }
+
+                        celulares.remove(posicao);
+                        adapter.notifyItemRemoved(posicao);
+                        adapter.notifyItemRangeChanged(posicao, celulares.size());
+
+                        carregaCelulares();
 
                         return false;
                     }

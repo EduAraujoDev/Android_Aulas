@@ -70,4 +70,10 @@ public class CelularDao {
 
         return celulares;
     }
+
+    public int delete(int id) {
+        SQLiteDatabase db = banco.getReadableDatabase();
+
+        return db.delete(TABELA_CELULAR, "id = " + id, null);
+    }
 }
