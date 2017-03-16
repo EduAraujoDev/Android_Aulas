@@ -15,7 +15,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Marca"/>
+            android:hint="@string/marca"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -26,13 +26,13 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Modelo"/>
+            android:hint="@string/modelo"/>
     </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Versão Android"/>
+        android:text="@string/verso_android"/>
 
     <Spinner
         android:layout_width="match_parent"
@@ -42,6 +42,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastrar"
+        android:text="@string/cadastrar"
         android:onClick="cadastrar"/>
 </LinearLayout>

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Trabalho01</string>
     <string name="textoSemCelular">Sem celular cadastrado</string>
+    <string name="marca">Marca</string>
+    <string name="modelo">Modelo</string>
+    <string name="verso_android">Versão Android</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="excluir">Excluir</string>
 </resources>
