@@ -110,6 +110,15 @@ public class MainActivity extends AppCompatActivity {
 
                 popupMenu.show();
             }
+
+            @Override
+            public void onClickCelular(View view, int posicao) {
+                Celular celular = celulares.get(posicao);
+
+                Intent intent = new Intent(view.getContext(), VisualizaCelularActivity.class);
+                intent.putExtra("celular", (int) celular.getId());
+                startActivity(intent);
+            }
         };
     }
 }

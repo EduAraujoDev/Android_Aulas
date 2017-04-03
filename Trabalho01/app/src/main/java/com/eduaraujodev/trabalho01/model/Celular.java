@@ -1,6 +1,8 @@
 package com.eduaraujodev.trabalho01.model;
 
-public class Celular {
+import java.io.Serializable;
+
+public class Celular implements Serializable{
 
     private int id;
     private String marca;

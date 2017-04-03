@@ -6,4 +6,6 @@
     <string name="verso_android">Versão Android</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="excluir">Excluir</string>
+    <string name="fechar">Fechar</string>
+    <string name="id">Id</string>
 </resources>

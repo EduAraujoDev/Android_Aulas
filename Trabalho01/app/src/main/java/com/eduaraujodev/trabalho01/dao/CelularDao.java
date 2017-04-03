@@ -45,6 +45,30 @@ public class CelularDao {
         }
     }
 
+    public Celular getCelular(int id) {
+        Celular celular = null;
+
+        String rawQuery = "SELECT t.*, c.nome, c.url_imagem FROM " + CelularDao.TABELA_CELULAR + " t " +
+                "INNER JOIN " + AndroidDao.TABELA_VERSAO_ANDROID + " c ON t." + CelularDao.COLUNA_VERSAO_ANDROID_ID + " = c." + AndroidDao.COLUNA_ID +
+                " WHERE t." + CelularDao.COLUNA_ID + " = " + id +
+                " ORDER BY " + CelularDao.COLUNA_MARCA + " ASC";
+
+        SQLiteDatabase db = banco.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(rawQuery, null);
+
+        if (cursor.moveToFirst()) {
+            celular = new Celular();
+
+            celular.setId(cursor.getInt(0));
+            celular.setMarca(cursor.getString(1));
+            celular.setModelo(cursor.getString(2));
+            celular.setVersaoAndroid(new VersaoAndroid(cursor.getInt(3), cursor.getString(4), cursor.getString(5)));
+        }
+
+        return celular;
+    }
+
     public List<Celular> getAll() {
         List<Celular> celulares = new LinkedList<>();
 

@@ -56,6 +56,13 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 return true;
             }
         });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                celularOnClickListener.onClickCelular(holder.itemView, position);
+            }
+        });
     }
 
     @Override
@@ -80,5 +87,6 @@ public class ListaCelularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public interface CelularOnClickListener {
         void onLongClickCelular(View view, int posicao);
+        void onClickCelular(View view, int posicao);
     }
 }
