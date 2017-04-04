@@ -84,23 +84,16 @@ public class MainActivity extends AppCompatActivity {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        int retorno = 0;
-
                         switch (item.getItemId()){
                             case R.id.menu_excluir:
-                                retorno = new CelularDao(getApplicationContext()).delete(celular.getId());
+                                excluiCelular(celular.getId(), posicao);
+
+                                break;
+                            case R.id.menu_alterar:
+                                alteraCelular(celular, posicao);
+
                                 break;
                         }
-
-                        if (retorno > 0) {
-                            Toast.makeText(getApplicationContext(), "Exluido com sucesso", Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Não foi possível excluir", Toast.LENGTH_LONG).show();
-                        }
-
-                        celulares.remove(posicao);
-                        adapter.notifyItemRemoved(posicao);
-                        adapter.notifyItemRangeChanged(posicao, celulares.size());
 
                         carregaCelulares();
 
@@ -118,6 +111,27 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(view.getContext(), VisualizaCelularActivity.class);
                 intent.putExtra("celular", (int) celular.getId());
                 startActivity(intent);
+            }
+
+            private void excluiCelular(int idCelular, int posicao) {
+                if (new CelularDao(getApplicationContext()).delete(idCelular) > 0) {
+                    Toast.makeText(getApplicationContext(), "Exluido com sucesso", Toast.LENGTH_LONG).show();
+
+                    celulares.remove(posicao);
+                    adapter.notifyItemRemoved(posicao);
+                    adapter.notifyItemRangeChanged(posicao, celulares.size());
+                } else {
+                    Toast.makeText(getApplicationContext(), "Não foi possível excluir", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            private void alteraCelular(Celular celular, int posicao) {
+                Intent intent = new Intent(getApplicationContext(), AlterarCelularActivity.class);
+                intent.putExtra("celular", (int) celular.getId());
+
+                startActivityForResult(intent, AlterarCelularActivity.CODE_NOVO_CELULAR);
+
+                adapter.notifyItemRangeChanged(posicao, celulares.size());
             }
         };
     }

@@ -95,6 +95,18 @@ public class CelularDao {
         return celulares;
     }
 
+    public void atualiza(Celular celular) {
+        SQLiteDatabase db = banco.getWritableDatabase();
+
+        ContentValues valores = new ContentValues();
+
+        valores.put(COLUNA_MARCA, celular.getMarca());
+        valores.put(COLUNA_MODELO, celular.getModelo());
+
+        db.update(TABELA_CELULAR, valores, CelularDao.COLUNA_ID + " = " + celular.getId(), null);
+    }
+
+
     public int delete(int id) {
         SQLiteDatabase db = banco.getReadableDatabase();
 

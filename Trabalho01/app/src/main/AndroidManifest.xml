@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".activity.NovoCelularActivity" />
         <activity android:name=".activity.VisualizaCelularActivity" />
+        <activity android:name=".activity.AlterarCelularActivity"></activity>
     </application>
 
 </manifest>

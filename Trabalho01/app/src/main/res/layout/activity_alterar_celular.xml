@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.eduaraujodev.trabalho01.activity.VisualizaCelularActivity">
+    tools:context="com.eduaraujodev.trabalho01.activity.AlterarCelularActivity">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -40,16 +40,9 @@
             android:hint="@string/modelo"/>
     </android.support.design.widget.TextInputLayout>
 
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="8dp"
-        android:id="@+id/ivIcone"
-        android:src="@mipmap/ic_launcher"/>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/fechar"
-        android:id="@+id/btFechar"/>
+        android:text="@string/alterar"
+        android:id="@+id/btAlterar"/>
 </LinearLayout>
