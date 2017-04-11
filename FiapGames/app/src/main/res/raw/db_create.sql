@@ -3,3 +3,21 @@ CREATE TABLE usuario (
     login VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE produtos (
+    id INTEGER NOT NULL PRIMARY KEY,
+    descricao VARCHAR(255) NOT NULL,
+    valor DOUBLE NOT NULL,
+    imagem VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE pedido (
+    id INTEGER NOT NULL PRIMARY KEY,
+    nome_cliente VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    cpf VARCHAR(14) NOT NULL,
+    cpf_nota VARCHAR(1) NOT NULL,
+    data VARCHAR(20) NOT NULL,
+    produto_id INTEGER NOT NULL,
+    FOREIGN KEY (produto_id) REFERENCES produtos (id)
+);

@@ -15,4 +15,12 @@
     <string name="navigation_drawer_open">Abre navigation drawer</string>
     <string name="sair">Sair</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="nome_cliente">Nome do Cliente</string>
+    <string name="telefone_cliente">Telefone</string>
+    <string name="cpf_cliente">CPF</string>
+    <string name="cpf_nota">CPF na nota?</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="produto">Produto</string>
+    <string name="finalizar">Finalizar</string>
 </resources>

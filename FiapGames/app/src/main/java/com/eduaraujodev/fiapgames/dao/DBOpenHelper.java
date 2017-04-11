@@ -28,6 +28,7 @@ public class DBOpenHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         lerEExecutarSQLScript(db, ctx, R.raw.db_create);
+        lerEExecutarSQLScript(db, ctx, R.raw.insere_dados_iniciais);
     }
 
     @Override

@@ -14,4 +14,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sair">Exit</string>
     <string name="cadastrar">Add</string>
+    <string name="nome_cliente">client name</string>
+    <string name="telefone_cliente">Phone</string>
+    <string name="cpf_cliente">CPF</string>
+    <string name="cpf_nota">CPF In the invoice</string>
+    <string name="sim">Yes</string>
+    <string name="nao">No</string>
+    <string name="produto">Product</string>
+    <string name="finalizar">finish</string>
 </resources>
