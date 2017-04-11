@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fiap Games</string>
+    <string name="user_add">Usuário incluído!</string>
+    <string name="user_erro">Erro na busca de usuário!</string>
+    <string name="user_exists">Usuário já existe!</string>
+    <string name="login_activity">Login</string>
+    <string name="senha">Senha</string>
+    <string name="usuario">Usuário</string>
+    <string name="login">Acessar</string>
+    <string name="manter_conectado">Manter Conectado</string>
+    <string name="usuario_nao_existe">Usuário ou senha incorreto</string>
+    <string name="bem_vindo">Bem vindo!</string>
+    <string name="navigation_drawer_close">Fecha navigation drawer</string>
+    <string name="navigation_drawer_open">Abre navigation drawer</string>
+    <string name="sair">Sair</string>
+    <string name="cadastrar">Cadastrar</string>
+</resources>

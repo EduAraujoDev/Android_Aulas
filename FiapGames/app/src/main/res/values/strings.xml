@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Fiap Games</string>
+    <string name="user_erro">Error in searching for user!</string>
+    <string name="user_add">User included</string>
+    <string name="user_exists">User already exists!</string>
+    <string name="login_activity">Login</string>
+    <string name="usuario">Login</string>
+    <string name="senha">Password</string>
+    <string name="login">Login</string>
+    <string name="manter_conectado">Keep connected</string>
+    <string name="usuario_nao_existe">Incorrect user or password</string>
+    <string name="bem_vindo">Welcome!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sair">Exit</string>
+    <string name="cadastrar">Add</string>
 </resources>
