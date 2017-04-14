@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="8dp"
+        android:id="@+id/ivImg"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/ivImg"
+        android:id="@+id/tvNomeCliente"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNomeCliente"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/ivImg"
+        android:id="@+id/tvDataHora" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDataHora"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/ivImg"
+        android:id="@+id/tvProduto"/>
+
+    <View
+        android:id="@+id/dividerProdutos"
+        android:layout_below="@id/ivImg"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp" />
+</RelativeLayout>

@@ -14,7 +14,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sair">Exit</string>
     <string name="cadastrar">Add</string>
-    <string name="nome_cliente">client name</string>
+    <string name="nome_cliente">Client name</string>
     <string name="telefone_cliente">Phone</string>
     <string name="cpf_cliente">CPF</string>
     <string name="cpf_nota">CPF In the invoice</string>
@@ -22,4 +22,11 @@
     <string name="nao">No</string>
     <string name="produto">Product</string>
     <string name="finalizar">finish</string>
+    <string name="pedido_ok">Order inserted successfully!</string>
+    <string name="pedido_nok">Error inserting request!</string>
+    <string name="texto_sem_pedido">No orders</string>
+    <string name="excluir">Delete</string>
+    <string name="alterar">Change</string>
+    <string name="excluido_ok">Request deleted successfully</string>
+    <string name="excluido_nok">Error while trying to delete</string>
 </resources>

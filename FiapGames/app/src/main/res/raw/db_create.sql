@@ -4,7 +4,7 @@ CREATE TABLE usuario (
     senha VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE produtos (
+CREATE TABLE produto (
     id INTEGER NOT NULL PRIMARY KEY,
     descricao VARCHAR(255) NOT NULL,
     valor DOUBLE NOT NULL,
@@ -19,5 +19,5 @@ CREATE TABLE pedido (
     cpf_nota VARCHAR(1) NOT NULL,
     data VARCHAR(20) NOT NULL,
     produto_id INTEGER NOT NULL,
-    FOREIGN KEY (produto_id) REFERENCES produtos (id)
+    FOREIGN KEY (produto_id) REFERENCES produto (id)
 );

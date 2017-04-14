@@ -7,7 +7,7 @@ public class Pedido {
     private String cpf;
     private String cpfNota;
     private String data;
-    private Produtos produtos;
+    private Produto produto;
 
     public long getId() {
         return id;
@@ -57,11 +57,11 @@ public class Pedido {
         this.data = data;
     }
 
-    public Produtos getProdutos() {
-        return produtos;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setProdutos(Produtos produtos) {
-        this.produtos = produtos;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 }

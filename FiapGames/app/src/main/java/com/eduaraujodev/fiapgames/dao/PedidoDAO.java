@@ -2,9 +2,14 @@ package com.eduaraujodev.fiapgames.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.eduaraujodev.fiapgames.model.Pedido;
+import com.eduaraujodev.fiapgames.model.Produto;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class PedidoDAO {
     private DBOpenHelper banco;
@@ -13,7 +18,7 @@ public class PedidoDAO {
         banco = new DBOpenHelper(context);
     }
 
-    public static final String TABELA_PEDIDO = "celular";
+    public static final String TABELA_PEDIDO = "pedido";
 
     public static final String COLUNA_ID = "id";
     public static final String COLUNA_NOME_CLIENTE = "nome_cliente";
@@ -33,7 +38,7 @@ public class PedidoDAO {
         values.put(COLUNA_CPF, pedido.getCpf());
         values.put(COLUNA_CPF_NOTA, pedido.getCpfNota());
         values.put(COLUNA_DATA, pedido.getData());
-        values.put(COLUNA_PRODUTOS_ID, pedido.getProdutos().getId());
+        values.put(COLUNA_PRODUTOS_ID, pedido.getProduto().getId());
 
         resultado = db.insert(TABELA_PEDIDO, null, values);
 
@@ -44,5 +49,40 @@ public class PedidoDAO {
         } else {
             return true;
         }
+    }
+
+    public List<Pedido> getAll() {
+        List<Pedido> pedidos = new LinkedList<>();
+
+        String rawQuery = "SELECT pe.*, pr.* FROM " + PedidoDAO.TABELA_PEDIDO + " pe " +
+                " INNER JOIN " + ProdutoDAO.TABELA_PRODUTO + " pr ON pe." + PedidoDAO.COLUNA_PRODUTOS_ID + " = pr." + ProdutoDAO.COLUNA_ID +
+                " ORDER BY " + PedidoDAO.COLUNA_NOME_CLIENTE + " ASC";
+
+        SQLiteDatabase db = banco.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(rawQuery, null);
+        Pedido pedido = null;
+
+        if (cursor.moveToFirst()) {
+            do {
+                pedido = new Pedido();
+                pedido.setId(cursor.getInt(0));
+                pedido.setNomeCliente(cursor.getString(1));
+                pedido.setTelefone(cursor.getString(2));
+                pedido.setCpf(cursor.getString(3));
+                pedido.setCpfNota(cursor.getString(4));
+                pedido.setData(cursor.getString(5));
+                pedido.setProduto(new Produto(cursor.getInt(7), cursor.getString(8), Double.parseDouble(cursor.getString(9)), cursor.getString(10)));
+                pedidos.add(pedido);
+            } while (cursor.moveToNext());
+        }
+
+        return pedidos;
+    }
+
+    public int delete(long id) {
+        SQLiteDatabase db = banco.getReadableDatabase();
+
+        return db.delete(TABELA_PEDIDO, "id = " + id, null);
     }
 }

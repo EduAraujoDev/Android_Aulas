@@ -23,4 +23,11 @@
     <string name="nao">Não</string>
     <string name="produto">Produto</string>
     <string name="finalizar">Finalizar</string>
+    <string name="pedido_ok">Pedido inserido com sucesso!</string>
+    <string name="pedido_nok">Erro ao inserir pedido</string>
+    <string name="texto_sem_pedido">Sem pedidos!</string>
+    <string name="excluir">Excluir</string>
+    <string name="alterar">Alterar</string>
+    <string name="excluido_ok">Pedido excluido com sucesso</string>
+    <string name="excluido_nok">Erro ao tentar excluir</string>
 </resources>
