@@ -29,4 +29,6 @@
     <string name="alterar">Change</string>
     <string name="excluido_ok">Request deleted successfully</string>
     <string name="excluido_nok">Error while trying to delete</string>
+    <string name="id">Id</string>
+    <string name="pedido_alterado">Successfully changed order</string>
 </resources>

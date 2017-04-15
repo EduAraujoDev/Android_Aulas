@@ -174,7 +174,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             private void alteraPedido(Pedido pedido, int posicao) {
+                Intent intent = new Intent(getApplicationContext(), AlterarActivity.class);
+                intent.putExtra("pedido", (int) pedido.getId());
 
+                startActivityForResult(intent, AlterarActivity.CODE_ALTERA_PEDIDO);
+
+                adapter.notifyItemRangeChanged(posicao, pedidos.size());
             }
         };
     }

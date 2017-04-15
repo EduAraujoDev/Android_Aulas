@@ -30,4 +30,6 @@
     <string name="alterar">Alterar</string>
     <string name="excluido_ok">Pedido excluido com sucesso</string>
     <string name="excluido_nok">Erro ao tentar excluir</string>
+    <string name="id">Id</string>
+    <string name="pedido_alterado">Pedido alterado com sucesso</string>
 </resources>

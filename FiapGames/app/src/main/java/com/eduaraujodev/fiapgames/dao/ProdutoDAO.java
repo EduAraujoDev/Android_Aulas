@@ -47,4 +47,24 @@ public class ProdutoDAO {
 
         return produtos;
     }
+
+    public Produto getby(int id) {
+        SQLiteDatabase db = banco.getReadableDatabase();
+        String colunas[] = { COLUNA_ID, COLUNA_DESCRICAO, COLUNA_VALOR, COLUNA_IMAGEM };
+        String where = "id = " + id;
+
+        Cursor cursor = db.query(true, TABELA_PRODUTO, colunas, where, null, null, null, null, null);
+        Produto produto = null;
+
+        if(cursor != null) {
+            cursor.moveToFirst();
+            produto = new Produto();
+            produto.setId(cursor.getInt(cursor.getColumnIndex(COLUNA_ID)));
+            produto.setDescricao(cursor.getString(cursor.getColumnIndex(COLUNA_ID)));
+            produto.setValor(cursor.getDouble(cursor.getColumnIndex(COLUNA_VALOR)));
+            produto.setImagem(cursor.getString(cursor.getColumnIndex(COLUNA_IMAGEM)));
+        }
+
+        return produto;
+    }
 }
