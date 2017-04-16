@@ -1,6 +1,6 @@
-INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 1, "PS4", 1250.00, "");
-INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 2, "XBox", 1500.00, "");
-INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 3, "Wii U", 600.00, "");
-INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 4, "Wii", 100.00, "");
-INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 5, "PsVita", 200.00, "");
-INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 6, "Nintendo switch", 3500.00, "");
+INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 1, "PS4", 1250.00, "http://vignette1.wikia.nocookie.net/criminal-case-grimsborough/images/b/bd/PS4.png/revision/latest?cb=20141224124624");
+INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 2, "XBox", 1500.00, "http://vignette1.wikia.nocookie.net/nickfanon/images/e/ed/Xbox-one-lrg.png/revision/latest?cb=20140505185701");
+INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 3, "Wii U", 600.00, "http://vignette1.wikia.nocookie.net/emulation-general/images/c/c2/Wii_U.png/revision/latest?cb=20131114195700");
+INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 4, "Wii", 100.00, "http://vignette3.wikia.nocookie.net/zelda/images/5/5e/Wii.png/revision/latest?cb=20110103032338");
+INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 5, "PsVita", 200.00, "http://www.gamesfoda.net/wp-content/uploads/2012/02/playstation-vita.png");
+INSERT INTO produto (id, descricao, valor, imagem) VALUES ( 6, "Nintendo switch", 3500.00, "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Nintendo_Switch_Console.png/300px-Nintendo_Switch_Console.png");

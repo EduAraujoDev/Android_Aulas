@@ -111,11 +111,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                         usuario.setSenha(json.getString("senha"));
 
                         if (new UsuarioDAO(getApplicationContext()).getBy(usuario) == null) {
-                            if (new UsuarioDAO(getApplicationContext()).add(usuario)) {
-                                Toast.makeText(SplashScreenActivity.this, R.string.user_add, Toast.LENGTH_LONG).show();
-                            }
-                        } else {
-                            Toast.makeText(SplashScreenActivity.this, R.string.user_exists, Toast.LENGTH_LONG).show();
+                            new UsuarioDAO(getApplicationContext()).add(usuario);
                         }
                     }
                 } catch (JSONException e) {

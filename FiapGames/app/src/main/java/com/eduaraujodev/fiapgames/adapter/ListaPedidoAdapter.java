@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.eduaraujodev.fiapgames.R;
 import com.eduaraujodev.fiapgames.model.Pedido;
 
@@ -39,6 +40,12 @@ public class ListaPedidoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         pedidoItemHolder.tvNomeCliente.setText(pedidos.get(position).getNomeCliente());
         pedidoItemHolder.tvDataHora.setText(pedidos.get(position).getData());
         pedidoItemHolder.tvProduto.setText(pedidos.get(position).getProduto().getDescricao());
+
+        Glide.with(context)
+                .load(pedidos.get(position).getProduto().getImagem())
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)
+                .into(pedidoItemHolder.ivImg);
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
