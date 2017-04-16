@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.eduaraujodev.fiapgames.R;
 import com.eduaraujodev.fiapgames.adapter.ListaPedidoAdapter;
 import com.eduaraujodev.fiapgames.dao.PedidoDAO;
+import com.eduaraujodev.fiapgames.fragment.AboutDialog;
 import com.eduaraujodev.fiapgames.model.Pedido;
 
 import java.util.List;
@@ -81,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_cadastrar:
                 startActivityForResult(new Intent(MainActivity.this, CadastrarActivity.class),
                         CadastrarActivity.CODE_NOVO_PEDIDO);
+                break;
+            case R.id.nav_sobre:
+                AboutDialog.showAbout(getSupportFragmentManager());
                 break;
             case R.id.nav_sair:
                 sair();

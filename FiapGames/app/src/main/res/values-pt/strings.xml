@@ -32,4 +32,15 @@
     <string name="excluido_nok">Erro ao tentar excluir</string>
     <string name="id">Id</string>
     <string name="pedido_alterado">Pedido alterado com sucesso</string>
+    <string name="sobre">Sobre</string>
+    <string name="about_dialog_text">
+<![CDATA[
+<b>App FIAP Games</b><br>
+Desenvolvedor: Eduardo Araújo<br>
+Versão: %s<br><br>
+]]>
+	</string>
+    <string name="about_dialog_title">Fiap Games</string>
+    <string name="ok">Ok</string>
+    <string name="NA">N/A</string>
 </resources>

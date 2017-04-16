@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="none">
         <item
             android:icon="@drawable/ic_add"
             android:id="@+id/nav_cadastrar"
             android:title="@string/cadastrar"/>
+
+        <item
+            android:icon="@drawable/ic_help"
+            android:id="@+id/nav_sobre"
+            android:title="@string/sobre" />
 
         <item
             android:icon="@drawable/ic_exit"
